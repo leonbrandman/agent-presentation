@@ -12,7 +12,7 @@ const items = [
   { delay: 0.52 },
 ];
 
-const chips = ["Perceive", "Reason", "Act", "Learn"];
+const chips = ["תופס", "חושב", "פועל", "לומד"];
 
 export default function Slide01Hook() {
   const [activeChip, setActiveChip] = useState(-1);
@@ -48,15 +48,15 @@ export default function Slide01Hook() {
         </motion.div>
         <div style={{
           position: "absolute", inset: 0,
-          background: "linear-gradient(100deg, rgba(7,8,15,0.97) 0%, rgba(7,8,15,0.85) 45%, rgba(7,8,15,0.25) 100%)"
+          background: "linear-gradient(100deg, rgba(7,8,15,0.25) 0%, rgba(7,8,15,0.85) 55%, rgba(7,8,15,0.97) 100%)"
         }} />
       </div>
 
-      <div className="relative z-10" style={{ padding: "0 0 90px 72px", maxWidth: "680px" }}>
+      <div className="relative z-10" style={{ padding: "0 72px 90px 0", maxWidth: "680px", marginRight: 0 }}>
         <motion.p
           initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: items[0].delay }}
-          style={{ fontFamily: "'JetBrains Mono'", fontSize: "11px", letterSpacing: "0.22em", color: "rgba(167,139,250,0.65)", marginBottom: "20px", textTransform: "uppercase" }}
+          style={{ fontFamily: "'JetBrains Mono'", fontSize: "11px", letterSpacing: "0.18em", color: "rgba(167,139,250,0.65)", marginBottom: "20px", textTransform: "uppercase", direction: "ltr", textAlign: "right" }}
         >
           Technical Presentation · 2026
         </motion.p>
@@ -65,7 +65,7 @@ export default function Slide01Hook() {
           initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, delay: items[1].delay }}
           className="display"
-          style={{ fontSize: "128px", lineHeight: 0.88, color: "var(--text)", marginBottom: "24px" }}
+          style={{ fontSize: "110px", lineHeight: 0.9, color: "var(--text)", marginBottom: "24px" }}
         >
           AGENTIC<br />
           <span style={{ color: "var(--primary-light)" }}>AI</span>
@@ -74,7 +74,7 @@ export default function Slide01Hook() {
         <motion.div
           initial={{ opacity: 0, scaleX: 0 }} animate={{ opacity: 1, scaleX: 1 }}
           transition={{ duration: 0.4, delay: items[2].delay, ease: "easeOut" }}
-          style={{ width: "56px", height: "3px", background: "var(--primary)", marginBottom: "24px", transformOrigin: "left" }}
+          style={{ width: "56px", height: "3px", background: "var(--primary)", marginBottom: "24px", transformOrigin: "right" }}
         />
 
         <motion.p
@@ -82,23 +82,23 @@ export default function Slide01Hook() {
           transition={{ duration: 0.5, delay: items[3].delay }}
           style={{ fontSize: "19px", color: "rgba(238,242,247,0.6)", lineHeight: 1.6, marginBottom: "36px" }}
         >
-          From Assistance to Autonomy.<br />From Tasks to Transformation.
+          מסיוע לאוטונומיה.<br />ממשימות לטרנספורמציה.
         </motion.p>
 
         {/* Chips that loop — they demonstrate the agent cycle live */}
         <motion.div
           initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.45, delay: items[4].delay }}
-          style={{ display: "flex", gap: "8px", alignItems: "center" }}
+          style={{ display: "flex", gap: "8px", alignItems: "center", flexDirection: "row-reverse" }}
         >
           {chips.map((chip, i) => (
-            <span key={chip} style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+            <span key={chip} style={{ display: "flex", alignItems: "center", gap: "8px", flexDirection: "row-reverse" }}>
               <span style={{
                 background: activeChip === i ? "rgba(124,58,237,0.18)" : "rgba(255,255,255,0.05)",
                 border: `1px solid ${activeChip === i ? "rgba(124,58,237,0.65)" : "rgba(255,255,255,0.1)"}`,
-                borderRadius: "2px", padding: "6px 14px", fontSize: "13px",
+                borderRadius: "2px", padding: "6px 14px", fontSize: "14px",
                 color: activeChip === i ? "rgba(167,139,250,1)" : "rgba(238,242,247,0.65)",
-                fontFamily: "'Space Grotesk'", fontWeight: activeChip === i ? 700 : 500,
+                fontFamily: "'Heebo'", fontWeight: activeChip === i ? 700 : 500,
                 transition: "all 0.35s ease",
                 boxShadow: activeChip === i ? "0 0 18px rgba(124,58,237,0.3)" : "none",
               }}>
@@ -110,7 +110,7 @@ export default function Slide01Hook() {
                   fontSize: "14px",
                   transition: "color 0.35s ease",
                 }}>
-                  →
+                  ←
                 </span>
               )}
             </span>
@@ -118,7 +118,7 @@ export default function Slide01Hook() {
         </motion.div>
       </div>
 
-      <SlideNav current={1} total={15} label="HOOK" />
+      <SlideNav current={1} total={15} label="פתיחה" />
     </div>
   );
 }

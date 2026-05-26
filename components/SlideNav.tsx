@@ -8,7 +8,7 @@ export default function SlideNav({ current, total, label }: Props) {
         <span className="slide-number">{String(current).padStart(2, "0")} / {String(total).padStart(2, "0")}</span>
         <span className="slide-label">{label}</span>
       </div>
-      <span className="slide-brand">AGENTIC AI · 2026</span>
+      <span className="slide-brand" style={{ fontFamily: "'JetBrains Mono', monospace", direction: "ltr" }}>AGENTIC AI · 2026</span>
     </div>
   );
 }

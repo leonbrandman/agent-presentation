@@ -3,32 +3,32 @@ import { motion } from "framer-motion";
 import SlideNav from "../SlideNav";
 
 const parts = [
-  { label: "Language Model", role: "The Brain", desc: "Processes and generates language", color: "#7c3aed" },
-  { label: "Tools", role: "The Hands", desc: "Acts on the world — files, APIs, web", color: "#3b82f6" },
-  { label: "Loop", role: "The Engine", desc: "Reasons iteratively until done", color: "#06b6d4" },
-  { label: "Memory", role: "The Soul", desc: "Learns and persists across sessions", color: "#3fb950" },
+  { label: "LLM", role: "המוח", desc: "מעבד ומייצר שפה", color: "#7c3aed" },
+  { label: "Tools", role: "הידיים", desc: "פועל בעולם — קבצים, APIs, רשת", color: "#3b82f6" },
+  { label: "Loop", role: "המנוע", desc: "חושב באופן איטרטיבי עד השלמת המשימה", color: "#06b6d4" },
+  { label: "Memory", role: "הנשמה", desc: "לומד ונשמר בין סשנים", color: "#3fb950" },
 ];
 
 export default function Slide05Formula() {
   return (
     <div className="slide" style={{ justifyContent: "space-between" }}>
-      <span className="section-label">The Architecture</span>
+      <span className="section-label">הארכיטקטורה</span>
 
       <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "center", gap: "48px" }}>
         <div>
           <motion.h2
             initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.45, delay: 0.05 }}
-            style={{ fontSize: "68px", fontWeight: 900, lineHeight: 1.0, marginBottom: "10px" }}
+            style={{ fontSize: "64px", fontWeight: 900, lineHeight: 1.0, marginBottom: "10px" }}
           >
-            What makes an agent?
+            ממה בנוי Agent?
           </motion.h2>
           <motion.p
             initial={{ opacity: 0 }} animate={{ opacity: 1 }}
             transition={{ duration: 0.4, delay: 0.2 }}
             style={{ fontSize: "20px", color: "var(--text-muted)" }}
           >
-            Not a new model — a new architecture built around it.
+            לא מודל חדש — ארכיטקטורה חדשה שנבנית סביבו.
           </motion.p>
         </div>
 
@@ -36,16 +36,16 @@ export default function Slide05Formula() {
         <motion.div
           initial={{ opacity: 0 }} animate={{ opacity: 1 }}
           transition={{ duration: 0.3, delay: 0.28 }}
-          style={{ borderLeft: "3px solid var(--primary)", paddingLeft: "32px", display: "flex", alignItems: "center", gap: "20px", flexWrap: "wrap" }}
+          style={{ borderRight: "3px solid var(--primary)", paddingRight: "32px", display: "flex", alignItems: "center", gap: "20px", flexWrap: "wrap", flexDirection: "row-reverse" }}
         >
           {parts.map((p, i) => (
             <motion.span
               key={p.label}
               initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.35, delay: 0.32 + i * 0.12 }}
-              style={{ display: "flex", alignItems: "center", gap: "20px" }}
+              style={{ display: "flex", alignItems: "center", gap: "20px", flexDirection: "row-reverse" }}
             >
-              <span style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "40px", color: p.color, letterSpacing: "0.03em" }}>
+              <span style={{ fontFamily: "'Secular One', sans-serif", fontSize: "40px", color: p.color, letterSpacing: "0.03em", direction: "ltr" }}>
                 {p.label}
               </span>
               {i < parts.length - 1 && (
@@ -64,10 +64,10 @@ export default function Slide05Formula() {
 
           {/* "AI Agent" — enters then pulses with a purple glow forever */}
           <motion.span
-            initial={{ opacity: 0, x: 20 }}
+            initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.4, delay: 0.32 + parts.length * 0.12 + 0.14 }}
-            style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "48px", color: "var(--primary-light)", letterSpacing: "0.03em" }}
+            style={{ fontFamily: "'Secular One', sans-serif", fontSize: "48px", color: "var(--primary-light)", letterSpacing: "0.03em", direction: "ltr" }}
           >
             <motion.span
               animate={{
@@ -92,17 +92,17 @@ export default function Slide05Formula() {
               key={p.label}
               initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.35, delay: 0.72 + i * 0.1 }}
-              style={{ paddingRight: "32px", paddingLeft: i > 0 ? "32px" : 0, borderLeft: i > 0 ? "1px solid var(--border)" : "none" }}
+              style={{ paddingLeft: "32px", paddingRight: i > 0 ? "32px" : 0, borderRight: i > 0 ? "1px solid var(--border)" : "none" }}
             >
-              <div style={{ fontFamily: "'Space Grotesk'", fontWeight: 900, fontSize: "12px", color: p.color, marginBottom: "8px", letterSpacing: "0.1em", textTransform: "uppercase" }}>{p.role}</div>
-              <div style={{ fontFamily: "'Space Grotesk'", fontWeight: 700, fontSize: "20px", marginBottom: "8px" }}>{p.label}</div>
-              <div style={{ fontSize: "17px", color: "var(--text-muted)", lineHeight: 1.55 }}>{p.desc}</div>
+              <div style={{ fontFamily: "'Heebo'", fontWeight: 900, fontSize: "12px", color: p.color, marginBottom: "8px", letterSpacing: "0.06em", textTransform: "uppercase" }}>{p.role}</div>
+              <div style={{ fontFamily: "'Heebo'", fontWeight: 700, fontSize: "19px", marginBottom: "8px", direction: "ltr", textAlign: "right" }}>{p.label}</div>
+              <div style={{ fontSize: "16px", color: "var(--text-muted)", lineHeight: 1.55 }}>{p.desc}</div>
             </motion.div>
           ))}
         </div>
       </div>
 
-      <SlideNav current={5} total={15} label="SOLUTION" />
+      <SlideNav current={5} total={15} label="פתרון" />
     </div>
   );
 }
